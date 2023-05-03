@@ -1,0 +1,45 @@
+<div class="container row mt-3">
+    <div class="offset-3 col-6">
+      <h1>Update Produit </h1>
+      <form [formGroup]="updateprodForm">
+        <div class="form-group">
+          <label for="">Name</label>
+          <input type="text" class="form-control" formControlName="Name"
+          [ngClass]="{ 'is-invalid': submitted && updateprodForm.controls['Name'].errors,'is-valid': submitted && !updateprodForm.controls['Name'].errors }">
+        </div>
+        <mat-error *ngIf="submitted && updateprodForm.controls['Name'].hasError('required')">
+          Name is required
+        </mat-error>
+        <div class="form-group">
+          <label>Discription
+          </label>
+          <textarea class="form-control" formControlName="Discription"
+          [ngClass]="{ 'is-invalid': submitted && updateprodForm.controls['Discription'].errors, 'is-valid': submitted && !updateprodForm.controls['Discription'].errors }"></textarea>
+        </div>
+        <mat-error *ngIf="submitted && updateprodForm.controls['Discription'].hasError('required')">
+          Discription is required
+        </mat-error>
+        <div class="form-group">
+            <label >Quantity</label>
+            <input type="number" class="form-control" formControlName="Quantity" min="1"
+            [ngClass]="{ 'is-invalid': submitted && updateprodForm.controls['Quantity'].errors,'is-valid': submitted && !updateprodForm.controls['Quantity'].errors }">
+          </div>
+          <mat-error *ngIf="submitted && updateprodForm.controls['Quantity'].hasError('required')">
+            Quantity is required
+          </mat-error>
+          <div class="form-group">
+            <label >Quantity</label>
+            <input type="number" class="form-control" formControlName="Price" min="1"
+            [ngClass]="{ 'is-invalid': submitted && updateprodForm.controls['Price'].errors,'is-valid': submitted && !updateprodForm.controls['Price'].errors }">
+          </div>
+          <mat-error *ngIf="submitted && updateprodForm.controls['Price'].hasError('required')">
+            Quantity is required
+          </mat-error>
+        <div class="row">
+          <button class=" btn btn-primary col-4" style="margin: 10px auto;" (click)="updateproduit()">Save</button>
+          <button class=" btn btn-dark col-4" style="margin: 10px auto;" routerLink="/Home">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+

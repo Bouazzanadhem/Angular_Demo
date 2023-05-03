@@ -1,0 +1,40 @@
+<div class="container row mt-3">
+    <div class="offset-3 col-6">
+      <h1>Add Produit</h1>
+      <form [formGroup]="addprodForm" (ngSubmit)="addproduit()">
+        <div class="form-group">
+          <label>Name</label>
+          <input type="text" class="form-control" formControlName="Name" placeholder=" name"
+          [ngClass]="{ 'is-invalid': submitted && addprodForm.controls['Name'].errors, 'is-valid': submitted && !addprodForm.controls['Name'].errors }">
+        </div>
+        <mat-error *ngIf="submitted && addprodForm.controls['Name'].hasError('required')">
+            Name is required
+        </mat-error>
+        <div class="form-group">
+          <label>Discription</label>
+          <textarea class="form-control" formControlName="Discription" placeholder="Discription"
+          [ngClass]="{ 'is-invalid': submitted && addprodForm.controls['Discription'].errors, 'is-valid': submitted && !addprodForm.controls['Discription'].errors }"></textarea>
+        </div>
+        <mat-error *ngIf="submitted && addprodForm.controls['Discription'].hasError('required')">
+            Discription is required
+        </mat-error>
+        <div class="form-group">
+            <label>Quantity</label>
+            <input type="number" class="form-control" formControlName="Quantity" value="1" min="1"
+            [ngClass]="{ 'is-invalid': submitted && addprodForm.controls['Quantity'].errors, 'is-valid': submitted && !addprodForm.controls['Quantity'].errors }">
+        </div>
+        <mat-error *ngIf="submitted && addprodForm.controls['Quantity'].hasError('required')">
+            Quantity is required
+        </mat-error>
+        <div class="form-group">
+            <label>Price</label>
+            <input type="number" class="form-control" formControlName="Price" value="1" min="1"
+            [ngClass]="{ 'is-invalid': submitted && addprodForm.controls['Price'].errors, 'is-valid': submitted && !addprodForm.controls['Price'].errors }">
+        </div>
+        <mat-error *ngIf="submitted && addprodForm.controls['Price'].hasError('required')">
+            Price is required
+        </mat-error>
+        <button class="form-control btn btn-primary" style="margin: 10px auto;" type="submit" >Add </button>
+      </form>
+    </div>
+  </div>

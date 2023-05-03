@@ -1,0 +1,43 @@
+<div style="width: 1000px; margin: auto;">
+    <h1 style="text-align: center; margin-top: 10px">List Produits</h1>
+    <div class="row">
+        <div class="offset-1 col-9">
+          <button class="btn btn-success float-right my-2" routerLink="/AddProduct">Add Produit</button>
+          <!-- <input type="search" class="form-control col-5" placeholder="Search Produit by Name" [(ngModel)]="Searchtext"> -->
+        </div>
+    </div>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Product Name</th>
+          <th scope="col">Description</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Price</th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <!-- |filter:Searchtext -->
+      <tbody *ngFor="let prod of Products ; let i=index">
+        <tr>
+          <th scope="row">{{i+1}}</th>
+          <td>{{prod.Name | uppercase}}</td>
+          <td>{{prod.Discription | lowercase | slice:0:5}}...</td>
+          <td>{{prod.Quantity}}</td>
+          <td>{{prod.Price}}</td>
+          <td>
+            <button type="submit" class="btn btn-success" [routerLink]="['/UpdateProduct', prod.id ]">
+            Update
+            </button>
+          </td>
+          <td>
+            <button class="btn btn-danger" (click)="deleteProduct(i)">
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

@@ -1,0 +1,22 @@
+
+<div class="container">
+  <div class="row">
+    <div class="input-group rounded mt-5">
+      <button class="btn btn-success me-2 col-3" routerLink="/AddProduct">Add Produit</button>
+      <input type="search" class="form-control rounded" placeholder="Search Product by Name" [(ngModel)]="Searchtext" aria-label="Search" aria-describedby="search-addon" >
+    </div>
+  </div>
+  <hr>
+  <div class="row" >
+    <div class="col-4" *ngFor="let prod of Products | search:Searchtext">
+      <div class="card mt-3 ms-2">
+        <div class="card-body">
+          <h5 class="card-title text-center"> {{prod.Name | uppercase }}</h5>
+          <p class="card-text"> {{prod.Discription | slice:0:50}}</p>
+          <span class="badge text-bg-dark">{{prod.Price | number: '4.0' | money}}</span>
+          <span class="badge text-bg-success float-end">{{prod.Quantity}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
